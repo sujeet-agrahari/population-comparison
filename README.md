@@ -39,7 +39,7 @@ Project is set to use `nodemon` in development mode, and `pm2` in production mod
 Logger logs to console  in `development` and `test` environment and to `file` inside `logs` directory (it will be created automaticaly if doesn't exist) in `production` environment.
 
 
-It also container `Dockerfile` to build *multi step docker images*
+It also contains `Dockerfile` to build *multi step docker images*
 ```
 docker build ---target dev -t sujeet-agrahari/country-comparision:latest // for development
 docker build --target prod -t sujeet-agrahari/country-comparision:latest // for production
