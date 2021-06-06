@@ -36,7 +36,7 @@ On boot, it loads routes and configs from 'src/loader`. It also validates necess
 
 Project is set to use `nodemon` in development mode, and `pm2` in production mode.
 
-Logger logs to console  in `development` and `test` environment and to `file` inside `logs` directory(it will be created auto if doesn't exist) in `production` environment.
+Logger logs to console  in `development` and `test` environment and to `file` inside `logs` directory (it will be created automaticaly if doesn't exist) in `production` environment.
 
 
 It also container `Dockerfile` to build *multi step docker images*
