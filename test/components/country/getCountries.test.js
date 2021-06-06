@@ -1,7 +1,7 @@
 const test = require('ava');
-const request = require('supertest');
 const sinon = require('sinon');
 const faker = require('faker');
+const request = require('supertest');
 
 require('dotenv').config();
 
@@ -9,7 +9,7 @@ require('dotenv').config();
 const { CountryService } = require('../../../src/components/country/country.component');
 
 // stubs
-const doGetCountries = sinon.stub(CountryService, 'doGetCountries').resolves({});
+const doGetCountries = sinon.stub(CountryService, 'doGetCountries').resolves({ countries: [faker.address.country()] });
 
 const app = require('../../../src/app');
 
@@ -17,20 +17,20 @@ test.before(async (t) => {
   t.context.stubs = {
     doGetCountries,
   };
-  t.context.baseUrl = '/api/v1/countries';
+  t.context.apiUrl = '/api/v1/countries';
   t.context.server = request(app);
 });
 
 test.after.always((t) => {
-  delete require.cache[require.resolve('../src/app')]; // kills server
+  delete require.cache[require.resolve('../../../src/app')]; // kills server
 });
 
-test.skip('Get All Cities', async (t) => {
-  const { server, baseUrl, stubs } = t.context;
+test('Fetch All Countries', async (t) => {
+  const { server, apiUrl, stubs } = t.context;
   const res = await server
-    .get(baseUrl)
+    .get(apiUrl)
     .expect(200);
   t.true(stubs.doGetCountries.calledOnce);
   t.true(typeof res.body === 'object');
-  t.true(Array.isArray(res.body.data));
+  t.true(Array.isArray(res.body.data.countries));
 });

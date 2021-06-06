@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "ava --timeout 1m",
+    "test": "env NODE_ENV=test ava",
     "start": "pm2 start ecosystem.config.js",
     "dev": "nodemon ./src/server.js"
   },
@@ -20,13 +20,17 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
+    "faker": "^5.5.3",
     "stoppable": "^1.1.0",
     "winston": "^3.3.3"
   },
   "devDependencies": {
+    "ava": "^3.15.0",
     "eslint": "^7.22.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.22.1",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "sinon": "^11.1.1",
+    "supertest": "^6.1.3"
   }
 }

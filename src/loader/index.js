@@ -6,4 +6,4 @@ function load(router) {
   };
 }
 
-export default load;
+module.exports = load;
