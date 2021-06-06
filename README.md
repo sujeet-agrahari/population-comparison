@@ -22,7 +22,7 @@ http://localhost:3000/api/v1/contries
 http://localhost:3000/api/v1/:countryName/population/:date
 ```
 
-``
+
 *Note: PORT is set to use 3000 in all modes. To update the port, modify `.env` file.*
 
 ## Project Architecture
