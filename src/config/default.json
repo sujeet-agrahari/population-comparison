@@ -1,0 +1,4 @@
+{
+  "API_PREFIX": "/api/v1",
+  "POPULATION_API_BASE_URL": "https://d6wn6bmjj722w.population.io/1.0"
+}

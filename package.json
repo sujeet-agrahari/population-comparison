@@ -1,0 +1,32 @@
+{
+  "name": "population-comparison",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava --timeout 1m",
+    "start": "pm2 start ecosystem.config.js",
+    "dev": "nodemon ./src/server.js"
+  },
+  "author": "Sujeet Agrahari",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "@hapi/joi-date": "^2.0.1",
+    "axios": "^0.21.1",
+    "chalk": "^4.1.0",
+    "config": "^3.3.6",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "stoppable": "^1.1.0",
+    "winston": "^3.3.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7"
+  }
+}
