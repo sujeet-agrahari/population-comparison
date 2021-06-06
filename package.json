@@ -6,6 +6,7 @@
   "scripts": {
     "test": "env NODE_ENV=test ava",
     "start": "pm2 start ecosystem.config.js",
+    "coverage": "nyc --reporter=lcov --reporter=text --reporter=cobertura npm test",
     "dev": "nodemon ./src/server.js"
   },
   "author": "Sujeet Agrahari",
@@ -21,6 +22,7 @@
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "faker": "^5.5.3",
+    "nyc": "^15.1.0",
     "pm2": "^4.5.6",
     "stoppable": "^1.1.0",
     "winston": "^3.3.3"
