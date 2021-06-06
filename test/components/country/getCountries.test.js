@@ -1,3 +1,5 @@
+/* eslint-disable no-param-reassign */
+
 const test = require('ava');
 const sinon = require('sinon');
 const faker = require('faker');
@@ -33,4 +35,5 @@ test('Fetch All Countries', async (t) => {
   t.true(stubs.doGetCountries.calledOnce);
   t.true(typeof res.body === 'object');
   t.true(Array.isArray(res.body.data.countries));
+  t.true(res.body.data.countries.length > 0);
 });

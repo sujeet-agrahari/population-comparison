@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const test = require('ava');
 const request = require('supertest');
 const sinon = require('sinon');
@@ -11,13 +12,13 @@ const { CountryService } = require('../../../src/components/country/country.comp
 const randomCountryName = faker.address.country();
 const randomPopulation = faker.datatype.number(99999999999);
 const randomPastDate = faker.date.past().toISOString().split('T')[0];
-
-const doGetCountryPopulationByDate = sinon.stub(CountryService, 'doGetCountryPopulationByDate').resolves({
+const stubResponse = {
   total_population: {
     date: randomPastDate,
     population: randomPopulation,
   },
-});
+};
+const doGetCountryPopulationByDate = sinon.stub(CountryService, 'doGetCountryPopulationByDate').resolves(stubResponse);
 
 const app = require('../../../src/app');
 
@@ -42,4 +43,6 @@ test('Get ', async (t) => {
   t.true(typeof res.body === 'object');
   t.true(res.body.success);
   t.true(typeof res.body.data.total_population === 'object');
+  t.true(Object.keys(res.body.data.total_population)
+    .includes(...Object.keys(stubResponse.total_population)));
 });
