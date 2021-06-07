@@ -28,7 +28,6 @@ http://localhost:3000/api/v1/:countryName/population/:date
 ## Project Architecture
 Project is based on modular/component structure.
 
-Please make sure to update tests as appropriate. 
 Each component contains all required controller, services, routes, validators inside its own component.
 
 On boot, it loads routes and configs from 'src/loader`. It also validates necessary environment variables and makes sure they do exist.
